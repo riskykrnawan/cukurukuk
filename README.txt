@@ -190,11 +190,12 @@ Dari 5 pilihan yang ada, pemanggilan yang hasil kembaliannya paling besar adalah
 
 Hasilnya tidak selalu meningkat seiring dengan naiknya N. Berdasarkan perhitungan untuk setiap pilihan:
 
+pndk(20, 3) = 20
 pndk(30, 3) = 29
-pndk(40, 3) = 18
-pndk(50, 3) = 8
-pndk(60, 3) = 58 *v)
-pndk(70, 3) = 48
+pndk(40, 3) = 28
+pndk(50, 3) = 11
+pndk(60, 3) = 41 (v)
+pndk(70, 3) = 1
 Nilai kembalian tertinggi adalah 58.
 
 ===
