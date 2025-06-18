@@ -1,0 +1,537 @@
+26. 
+#include <iostream>
+
+int main() {
+    int a, b, c, d, x;
+    
+    // Baris ini akan meminta masukan empat angka saat program dijalankan.
+    // Untuk kasus ini, angka yang dimasukkan adalah 1 2 3 5
+    std::cin >> a >> b >> c >> d;
+    
+    // Menghitung nilai variabel langkah demi langkah:
+    // a = 1 + 1  -> a menjadi 2
+    a = a + a;
+    
+    // b = 2 + 2  -> b menjadi 4
+    b = a + b;
+    
+    // c = 2 + 4 + 3 -> c menjadi 9
+    c = a + b + c;
+    
+    // d = 2 + 4 + 9 + 5 -> d menjadi 20
+    d = a + b + c + d;
+    
+    // x = 2 + 4 + 9 + 20 -> x menjadi 35
+    x = a + b + c + d;
+    
+    // Mencetak nilai akhir x
+    std::cout << x;
+    
+    return 0;
+}
+
+27. 
+#include <iostream>
+#include <algorithm> // Diperlukan untuk menggunakan std::max
+
+int main() {
+    // Inisialisasi variabel
+    int a = 12;
+    int b = 23;
+    int c = 45;
+    int d = 78;
+    int x;
+
+    // Cara 1: Mencari nilai maksimum secara manual
+    int maks = a; // Anggap a adalah yang terbesar untuk sementara
+    if (b > maks) {
+        maks = b;
+    }
+    if (c > maks) {
+        maks = c;
+    }
+    if (d > maks) {
+        maks = d;
+    }
+
+    x = maks * maks; // Kuadratkan nilai maksimum yang ditemukan
+
+    std::cout << "(Cara 1) Nilai maksimum adalah " << maks << ", dan kuadratnya adalah: " << x << std::endl;
+
+    // Cara 2: Menggunakan fungsi std::max dari library <algorithm> (lebih canggih)
+    int maks_modern = std::max({a, b, c, d});
+    x = maks_modern * maks_modern;
+    
+    std::cout << "(Cara 2) Nilai maksimum adalah " << maks_modern << ", dan kuadratnya adalah: " << x << std::endl;
+
+
+    return 0;
+}
+
+28.
+#include <iostream>
+
+// Menggunakan namespace std agar tidak perlu menulis std::cout atau std::endl
+using namespace std;
+
+int main() {
+    // 1. Inisialisasi variabel sesuai soal
+    int m = 30;
+    int n = 10;
+
+    // Variabel untuk menghitung total bintang yang akan tercetak
+    int total_bintang = 0;
+
+    cout << "Program mencetak bintang dengan m = " << m << " dan n = " << n << "\n";
+    cout << "--------------------------------------------------\n";
+
+    // 2. Perulangan utama dari i = 0 hingga m-1 (yaitu 0 sampai 29)
+    for (int i = 0; i < m; i++) {
+        
+        // Memeriksa apakah nilai i saat ini genap atau ganjil
+        if (i % 2 == 0) {
+            // Jika i GENAP, cetak bintang sebanyak i
+            for (int j = 0; j < i; j++) {
+                cout << "*";
+                total_bintang++; // Tambah 1 ke total setiap kali bintang dicetak
+            }
+        } else { // jika i tidak genap, berarti GANJIL
+            // Jika i GANJIL, cetak bintang sebanyak n (yaitu 10)
+            for (int j = 0; j < n; j++) {
+                cout << "*";
+                total_bintang++; // Tambah 1 ke total setiap kali bintang dicetak
+            }
+        }
+        
+        // Mencetak baris baru agar outputnya rapi untuk setiap putaran i
+        cout << endl;
+    }
+
+    // 3. Mencetak hasil akhir perhitungan total bintang
+    cout << "--------------------------------------------------\n";
+    cout << "Perhitungan selesai.\n";
+    cout << "Total karakter bintang (*) yang tercetak adalah: " << total_bintang << endl;
+
+    return 0;
+}
+
+29. 
+#include <iostream>
+
+int main() {
+    // 1. Inisialisasi variabel sesuai soal
+    int x = 0;
+    int y = 0;
+
+    // Variabel tambahan untuk menghitung jumlah putaran (iterasi)
+    int jumlah_iterasi = 0;
+
+    std::cout << "Program dimulai...\n";
+    std::cout << "Nilai awal: x = " << x << ", y = " << y << "\n\n";
+
+    // 2. Perulangan while dengan tiga kondisi
+    // Loop akan berhenti saat salah satu kondisi menjadi false.
+    // Berdasarkan analisis, kondisi (x - y > -67) akan menjadi false terlebih dahulu.
+    while (x * 7 < 986 && y * 4 <= 876 && x - y > -67) {
+        // Menambah nilai x dan y sesuai aturan
+        x += 2; // sama dengan x = x + 2;
+        y += 3; // sama dengan y = y + 3;
+
+        // Menambah penghitung iterasi
+        jumlah_iterasi++;
+
+        // (Opsional) Baris ini bisa di-uncomment untuk melihat perubahan nilai di setiap putaran
+        // std::cout << "Iterasi ke-" << jumlah_iterasi << ": x=" << x << ", y=" << y << ", x-y=" << x - y << "\n";
+    }
+
+    std::cout << "Perulangan (loop) telah berhenti.\n\n";
+
+    // 3. Mencetak hasil akhir
+    std::cout << "Hasil Akhir:\n";
+    std::cout << "Nilai akhir x adalah: " << x << std::endl;
+    std::cout << "Nilai akhir y adalah: " << y << std::endl;
+    std::cout << "Total perulangan yang berhasil dijalankan: " << jumlah_iterasi << " kali." << std::endl;
+
+    return 0;
+}
+
+30.
+#include <iostream>
+
+// Fungsi bantuan untuk mencetak isi array agar rapi
+void printArray(const int arr[], int size) {
+    std::cout << "{ ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << (i == size - 1 ? "" : ", ");
+    }
+    std::cout << " }\n";
+}
+
+int main() {
+    // 1. Inisialisasi array sesuai soal
+    int a[10] = {7, 4, 5, 0, 2, 3, 8, 1, 9, 6};
+    std::cout << "Kondisi Awal Array a: ";
+    printArray(a, 10);
+    std::cout << "\n";
+
+    // 2. Menghitung nilai 'sebelum'
+    int sebelum = 0;
+    for (int i = 0; i < 10; i++) {
+        sebelum += a[i];
+    }
+    std::cout << "Nilai 'sebelum' (total awal): " << sebelum << "\n\n";
+
+    // 3. Melakukan operasi assignment yang kompleks
+    std::cout << "Melakukan operasi assignment...\n";
+    
+    // Untuk kejelasan, kita simpan nilai lama sebelum diubah
+    int indeks_yang_diubah = a[a[a[a[a[a[a[7]]]]]]]; // Hasilnya 7
+    int nilai_lama = a[indeks_yang_diubah]; // Nilai lama di a[7] adalah 1
+
+    std::cout << "Nilai lama pada a[" << indeks_yang_diubah << "] adalah " << nilai_lama << "\n";
+
+    // Melakukan assignment
+    a[indeks_yang_diubah] = a[a[a[a[a[a[a[6]]]]]]]; // a[7] diisi dengan hasil evaluasi (yaitu 8)
+
+    std::cout << "Nilai baru pada a[" << indeks_yang_diubah << "] adalah " << a[indeks_yang_diubah] << "\n";
+    std::cout << "Kondisi Akhir Array a: ";
+    printArray(a, 10);
+    std::cout << "\n";
+
+    // 4. Menghitung nilai 'setelah'
+    int setelah = 0;
+    for (int i = 0; i < 10; i++) {
+        setelah += a[i];
+    }
+    std::cout << "Nilai 'setelah' (total akhir): " << setelah << "\n\n";
+
+    // 5. Menghitung nilai 'ans'
+    int ans = setelah - sebelum;
+
+    // Menampilkan hasil akhir
+    std::cout << "========================================\n";
+    std::cout << "Nilai ans = setelah - sebelum\n";
+    std::cout << "Nilai ans = " << setelah << " - " << sebelum << " = " << ans << std::endl;
+    std::cout << "========================================\n";
+
+    return 0;
+}
+
+31.
+#include <iostream>
+#include <string>
+
+// Menggunakan namespace std agar tidak perlu menulis std::cout
+using namespace std;
+
+// 1. Deklarasi Variabel Global
+// Nilai variabel ini akan dapat diakses dan diubah oleh semua fungsi.
+int a = 0, b = 0, c = 0, d = 0;
+int ans = 0;
+
+// 2. Definisi Fungsi 'kebersamaan'
+// Fungsi ini melakukan dua hal: menambah 'ans' dan menggeser nilai a,b,c,d
+void kebersamaan(int x) {
+    // Tugas pertama: menambah 'ans' dengan nilai 'a' saat ini
+    ans += a;
+
+    // Tugas kedua: menggeser nilai
+    a = b; // a diisi nilai b
+    b = c; // b diisi nilai c
+    c = d; // c diisi nilai d
+    d = x; // d diisi nilai baru dari parameter x
+}
+
+// Fungsi bantuan untuk mencetak status variabel saat ini agar mudah dilacak
+void printStatus(const string& pemicu) {
+    cout << "Setelah '" << pemicu << "':\n";
+    cout << " -> a=" << a << ", b=" << b << ", c=" << c << ", d=" << d << ", ans=" << ans << "\n\n";
+}
+
+// 3. Fungsi Utama (main)
+int main() {
+    cout << "Keadaan Awal:\n";
+    cout << " -> a=" << a << ", b=" << b << ", c=" << c << ", d=" << d << ", ans=" << ans << "\n\n";
+
+    a += 4;
+    b += 3;
+    c += 7;
+    d += 2;
+    kebersamaan(5);
+    printStatus("kebersamaan(5)");
+
+    kebersamaan(2);
+    printStatus("kebersamaan(2)");
+
+    a += 2;
+    c += 3;
+    kebersamaan(3);
+    printStatus("kebersamaan(3)");
+
+    d += 4;
+    c += 4;
+    kebersamaan(0);
+    printStatus("kebersamaan(0)");
+
+    a += 5;
+    b += 6;
+    kebersamaan(1);
+    printStatus("kebersamaan(1)");
+
+    c += 9;
+    a += 7;
+    c += 2;
+
+    cout << "Setelah perubahan terakhir (tanpa memanggil fungsi):\n";
+    cout << " -> a=" << a << ", b=" << b << ", c=" << c << ", d=" << d << ", ans=" << ans << "\n\n";
+
+    // Hasil Akhir
+    cout << "=======================================\n";
+    cout << "Nilai akhir ans setelah program selesai adalah: " << ans << endl;
+    cout << "=======================================\n";
+
+    return 0;
+}
+
+32.
+#include <iostream>
+
+// 1. Deklarasi Variabel Global
+// Variabel ini dapat diakses dan diubah oleh semua fungsi.
+int a, b, c, d;
+
+// 2. Definisi Fungsi-fungsi sesuai soal
+
+// Fungsi ini mengurangi d, lalu mengembalikan hasil perhitungan
+int kiri() {
+    d--; // Efek samping: mengurangi 'd' setiap kali dipanggil
+    return c - a / b;
+}
+
+// Fungsi ini juga mengurangi d, lalu mengembalikan hasil perhitungan
+int kanan() {
+    d--; // Efek samping: mengurangi 'd' setiap kali dipanggil
+    return a + b - c;
+}
+
+// Fungsi ini mengubah nilai c dan a
+void atas() {
+    c = c / 3;
+    a -= 5;
+}
+
+// Fungsi utama yang akan kita telusuri
+int bawah(int x, int y, int z) {
+    // Inisialisasi variabel global dengan nilai dari parameter
+    a = x;
+    b = y;
+    c = z;
+    d = 0;
+
+    // Perulangan while dengan kondisi yang memanggil fungsi dengan efek samping
+    // Setiap pengecekan kondisi, 'd' akan berkurang 2 kali.
+    while (kiri() > kanan()) {
+        // Badan loop
+        d = a + b + c + d;
+        atas();
+        b = b + 3;
+    }
+
+    // Kalkulasi setelah loop berhenti
+    d += b * c;
+    d += x / y; // Menggunakan parameter awal x dan y
+
+    // Mengembalikan nilai akhir
+    return d - 2 * a;
+}
+
+// 3. Fungsi main untuk menjalankan program
+int main() {
+    // Memanggil fungsi 'bawah' dengan nilai yang ditentukan dalam soal
+    int hasil = bawah(42, 17, 265);
+
+    // Mencetak hasil akhir yang dikembalikan oleh fungsi 'bawah'
+    std::cout << "Nilai yang dikembalikan dari pemanggilan bawah(42, 17, 265) adalah: " << hasil << std::endl;
+
+    return 0;
+}
+
+33.
+#include <iostream>
+
+// Fungsi bersih mengembalikan x + y
+int bersih(int x, int y) {
+    return x + y;
+}
+
+// Fungsi hijau mengembalikan x - y
+int hijau(int x, int y) {
+    return x - y;
+}
+
+// Fungsi rekursif berhiber
+int berhiber(int x, int y) {
+    // Baris ini bisa di-uncomment untuk melihat jejak setiap pemanggilan rekursif
+    // std::cout << "Memanggil berhiber(" << x << ", " << y << ")\n";
+
+    // Basis (Base Case): Kondisi berhenti saat y mencapai 0
+    if (y == 0) {
+        return 0;
+    } 
+    // Langkah Rekursif (Recursive Step): Memanggil dirinya sendiri dengan nilai lebih kecil
+    else {
+        // Pemanggilan aslinya adalah: bersih(x, y) + hijau(x, y) + berhiber(x - 1, y - 1);
+        // Seperti dalam analisis kita, (bersih(x, y) + hijau(x, y)) bisa disederhanakan menjadi 2*x
+        // untuk perhitungan yang lebih efisien.
+        return (2 * x) + berhiber(x - 1, y - 1);
+    }
+}
+
+// Fungsi utama untuk menjalankan program
+int main() {
+    // Nilai awal sesuai dengan soal
+    int x_awal = 20;
+    int y_awal = 15;
+
+    std::cout << "Menghitung nilai dari pemanggilan berhiber(" << x_awal << ", " << y_awal << ")...\n";
+
+    // Memanggil fungsi rekursif dan menyimpan hasilnya
+    int hasil = berhiber(x_awal, y_awal);
+
+    // Mencetak hasil akhir
+    std::cout << "\n==================================================\n";
+    std::cout << "Nilai yang dikembalikan adalah: " << hasil << std::endl;
+    std::cout << "==================================================\n";
+
+    return 0;
+}
+
+34.
+#include <iostream>
+
+// --- Forward Declarations ---
+// Karena info(), format(), dan matika() saling memanggil satu sama lain,
+// kita perlu mendeklarasikannya terlebih dahulu sebelum implementasi lengkapnya.
+int info(int x);
+int format(int x);
+int matika(int x);
+
+
+// --- Definisi Fungsi ---
+
+// Fungsi info()
+int info(int x) {
+    // Basis (Base Case): Kondisi berhenti
+    if (x == 0) {
+        return 1;
+    } 
+    // Langkah Rekursif
+    else {
+        return info(x - 1) + format(x - 1);
+    }
+}
+
+// Fungsi format()
+int format(int x) {
+    // Basis (Base Case): Kondisi berhenti
+    if (x == 0) {
+        return 1;
+    }
+    // Langkah Rekursif
+    else {
+        return info(x - 1) + matika(x - 1);
+    }
+}
+
+// Fungsi matika()
+int matika(int x) {
+    // Basis (Base Case): Kondisi berhenti
+    if (x == 0) {
+        return 1;
+    }
+    // Langkah Rekursif
+    else {
+        return format(x - 1) + matika(x - 1);
+    }
+}
+
+
+// --- Fungsi Utama (main) ---
+int main() {
+    // Nilai input sesuai dengan soal
+    int input = 9;
+
+    std::cout << "Menghitung nilai dari pemanggilan info(" << input << ")...\n";
+
+    // Memanggil fungsi dan menyimpan hasilnya
+    int hasil = info(input);
+
+    // Mencetak hasil akhir
+    std::cout << "\n=============================================\n";
+    std::cout << "Nilai yang dikembalikan adalah: " << hasil << std::endl;
+    std::cout << "=============================================\n";
+
+    return 0;
+}
+
+35.
+#include <iostream>
+
+// Fungsi ini menghitung Faktor Persekutuan Terbesar (FPB) dari x dan y
+// menggunakan Algoritma Euklides dengan metode pengurangan.
+int hijau(int x, int y) {
+    // Bagian ini memastikan x selalu lebih besar atau sama dengan y.
+    // Ini adalah cara menukar (swap) nilai x dan y tanpa variabel tambahan.
+    if (x < y) {
+        x = x + y;
+        y = x - y;
+        x = x - y;
+    }
+
+    // Basis dari rekursi: jika y adalah 0, maka FPB-nya adalah x.
+    if (y == 0) {
+        return x;
+    }
+
+    // Langkah rekursif: panggil kembali fungsi dengan (x-y, y).
+    return hijau(x - y, y);
+}
+
+// Fungsi ini adalah mesin penjumlah rekursif.
+// Menjumlahkan hasil dari hijau(q, e) berulang kali,
+// di mana 'q' dikurangi 'r' setiap langkahnya.
+int merah(int q, int w, int e, int r) {
+    // Basis dari rekursi: berhenti menjumlahkan jika q lebih kecil dari w.
+    if (q < w) {
+        return 0;
+    }
+
+    // Langkah rekursif: hitung hijau(q, e) dan tambahkan dengan
+    // hasil dari pemanggilan berikutnya.
+    return hijau(q, e) + merah(q - r, w, e, r);
+}
+
+// Fungsi utama yang mengorkestrasi perhitungan.
+int biru(int n) {
+    int ans = 0;
+
+    // Panggilan pertama ke mesin penjumlah.
+    ans += merah(n, 1, n, 1);
+
+    // Panggilan kedua, yang hasilnya akan dikurangkan.
+    ans -= merah(2 * n, 2, n, 2);
+
+    // Kembalikan hasil akhir setelah dikalikan 3.
+    return ans * 3;
+}
+
+// Fungsi main untuk menjalankan program dan mencetak hasilnya.
+int main() {
+    // Memanggil fungsi biru dengan input 69.
+    int hasil = biru(69);
+
+    // Mencetak nilai yang dikembalikan ke layar.
+    std::cout << "Nilai yang dikembalikan dari pemanggilan biru(69) adalah: " << hasil << std::endl;
+
+    return 0;
+}
