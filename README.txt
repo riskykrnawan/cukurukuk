@@ -196,7 +196,7 @@ pndk(40, 3) = 28
 pndk(50, 3) = 11
 pndk(60, 3) = 41 (v)
 pndk(70, 3) = 1
-Nilai kembalian tertinggi adalah 58.
+Nilai kembalian tertinggi adalah 41.
 
 ===
 
